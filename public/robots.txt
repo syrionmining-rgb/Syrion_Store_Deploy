@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.syrionstore.com/sitemap.xml
+
+# Desabilitar acesso a arquivos sensíveis
+Disallow: /src/
+Disallow: /node_modules/
