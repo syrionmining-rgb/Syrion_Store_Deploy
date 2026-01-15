@@ -2,6 +2,14 @@
 
 Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 
+## [1.3.1] - 2026-01-15
+
+### 🐛 Corrigido
+- **Open Graph og:image com caracteres especiais**: URL-codificado caracteres especiais (`+`) nos caminhos das imagens para corrigir problemas de preview em WhatsApp e outras plataformas de compartilhamento social
+  - Alterado: `/assets/S21+.png` → `/assets/S21%2B.png`
+  - Alterado: `/assets/S19PRO++.png` → `/assets/S19PRO%2B%2B.png`
+  - Isso garante que social crawlers possam acessar corretamente as imagens de preview
+
 ## [1.3.0] - 2026-01-15
 
 ### ✨ Adicionado
