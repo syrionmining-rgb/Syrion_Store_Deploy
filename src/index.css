@@ -80,16 +80,52 @@
 @layer base {
   * {
     @apply border-border;
+    /* Proteger tudo contra seleção */
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
   }
 
   html {
     scroll-behavior: smooth;
+    user-select: none !important;
+    -webkit-user-select: none !important;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: hsl(228 15% 7%);
+    /* Proteger contra cópia */
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    -webkit-touch-callout: none;
+  }
+
+  /* Proteger imagens contra download e seleção */
+  img {
+    pointer-events: none !important;
+    -webkit-user-drag: none !important;
+    user-drag: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -webkit-touch-callout: none !important;
+  }
+
+  /* Proteger links */
+  a {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+  }
+
+  /* Proteger textos */
+  p, span, h1, h2, h3, h4, h5, h6, div {
+    user-select: none !important;
+    -webkit-user-select: none !important;
   }
 }
 
@@ -126,7 +162,7 @@
 
   /* Monterey Button */
   .btn-monterey {
-    @apply relative px-8 py-4 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 select-none outline-none focus:outline-none;
+    @apply relative px-6 py-3 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 select-none outline-none focus:outline-none text-sm;
     background: var(--gradient-button);
     box-shadow: 0 4px 20px hsl(210 95% 65% / 0.3);
   }
@@ -193,20 +229,46 @@
     box-shadow: 0 0 60px hsl(200 80% 55% / 0.3);
   }
 
+  /* Global Input Styles */
+  input,
+  textarea,
+  select {
+    line-height: 1.5;
+    vertical-align: middle;
+    caret-color: hsl(210 95% 65%);
+  }
+
   /* Input Glass */
   .input-glass {
     @apply glass-panel px-4 py-3 w-full outline-none transition-all duration-300;
     background: hsl(225 15% 10% / 0.8);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    caret-color: hsl(210 95% 65%);
+    vertical-align: middle;
   }
 
   .input-glass:focus {
-    border-color: hsl(265 80% 65% / 0.5);
-    box-shadow: 0 0 0 3px hsl(265 80% 65% / 0.1);
+    border-color: hsl(210 95% 65% / 0.5);
+    box-shadow: 0 0 0 3px hsl(210 95% 65% / 0.1);
+  }
+
+  /* Remove number input spinners */
+  .input-glass::-webkit-outer-spin-button,
+  .input-glass::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .input-glass[type=number] {
+    -moz-appearance: textfield;
   }
 
   /* Stat Card */
   .stat-value {
-    @apply text-4xl md:text-5xl font-bold;
+    @apply text-xl md:text-5xl font-bold;
     background: var(--gradient-button);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

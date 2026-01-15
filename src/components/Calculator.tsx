@@ -99,7 +99,7 @@ const Calculator = () => {
 
   return (
     <section id="calculadora" className="py-24 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
+      <div className="absolute inset-0" />
       
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
@@ -154,8 +154,15 @@ const Calculator = () => {
                     max="1000"
                     value={quantity}
                     onChange={(e) => {
-                      const value = parseInt(e.target.value) || 1;
-                      setQuantity(Math.max(1, Math.min(1000, value)));
+                      const inputValue = e.target.value;
+                      if (inputValue === '' || inputValue === '-') {
+                        setQuantity(1);
+                      } else {
+                        const value = parseInt(inputValue);
+                        if (!isNaN(value)) {
+                          setQuantity(Math.max(1, Math.min(1000, value)));
+                        }
+                      }
                     }}
                     className="input-glass"
                   />
@@ -171,7 +178,17 @@ const Calculator = () => {
                     min="0"
                     step="0.01"
                     value={electricityCost}
-                    onChange={(e) => setElectricityCost(Math.max(0, parseFloat(e.target.value) || 0))}
+                    onChange={(e) => {
+                      const inputValue = e.target.value;
+                      if (inputValue === '' || inputValue === '-') {
+                        setElectricityCost(0);
+                      } else {
+                        const value = parseFloat(inputValue);
+                        if (!isNaN(value)) {
+                          setElectricityCost(Math.max(0, value));
+                        }
+                      }
+                    }}
                     className="input-glass"
                   />
                 </div>
@@ -188,8 +205,15 @@ const Calculator = () => {
                     step="0.1"
                     value={poolFee}
                     onChange={(e) => {
-                      const value = parseFloat(e.target.value) || 0;
-                      setPoolFee(Math.max(0, Math.min(10, value)));
+                      const inputValue = e.target.value;
+                      if (inputValue === '' || inputValue === '-') {
+                        setPoolFee(0);
+                      } else {
+                        const value = parseFloat(inputValue);
+                        if (!isNaN(value)) {
+                          setPoolFee(Math.max(0, Math.min(10, value)));
+                        }
+                      }
                     }}
                     className="input-glass"
                   />
@@ -332,15 +356,15 @@ const Calculator = () => {
                     <span className="text-foreground">{calculations.btcPerDay.toFixed(8)} BTC</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Receita Bruta</span>
+                    <span className="text-muted-foreground">Receita Bruta /Mês</span>
                     <span className="text-foreground">${calculations.revenueMonth.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Custo de Energia</span>
+                    <span className="text-muted-foreground">Custo de Energia /Mês</span>
                     <span className="text-red-400">-${calculations.energyCostMonth.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Consumo Mensal</span>
+                    <span className="text-muted-foreground">Consumo /Mês</span>
                     <span className="text-foreground">{(calculations.energyKWhDay * 30).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} kWh</span>
                   </div>
                   <div className="flex justify-between text-sm">

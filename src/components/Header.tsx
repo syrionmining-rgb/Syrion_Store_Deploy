@@ -19,7 +19,7 @@ const Header = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a href="#" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center transition-transform group-hover:scale-105">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105">
                 <img src={iconLogo} alt="ASIC Pro" className="w-16 h-16 object-contain" />
               </div>
               <span className="text-xl font-bold text-foreground">
@@ -42,7 +42,7 @@ const Header = () => {
 
             {/* CTA Button */}
             <div className="hidden md:block">
-              <a href="#contato" className="btn-monterey text-sm py-3 px-6">
+              <a href="https://api.whatsapp.com/send/?phone=5551980104595&text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+mais+informa%C3%A7%C3%B5es%21" target="_blank" rel="noopener noreferrer" className="btn-monterey text-sm py-3 px-6">
                 Falar com Consultor
               </a>
             </div>
@@ -71,7 +71,9 @@ const Header = () => {
                   </a>
                 ))}
                 <a
-                  href="#contato"
+                  href="https://api.whatsapp.com/send/?phone=5551980104595&text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+mais+informa%C3%A7%C3%B5es%21"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsMenuOpen(false)}
                   className="btn-monterey text-center mt-2"
                 >

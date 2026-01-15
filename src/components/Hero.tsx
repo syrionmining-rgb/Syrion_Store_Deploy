@@ -38,12 +38,12 @@ const Hero = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-up opacity-0 stagger-3">
-            <a href="#modelos" className="btn-monterey inline-flex items-center justify-center gap-2">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-up opacity-0 stagger-3 max-w-xs sm:max-w-none mx-auto">
+            <a href="#modelos" className="btn-monterey inline-flex items-center justify-center gap-2 py-3 px-6 rounded-lg border border-primary/20">
               Modelos Disponíveis
               <ArrowRight className="w-5 h-5" />
             </a>
-            <a href="#calculadora" className="btn-glass inline-flex items-center justify-center gap-2">
+            <a href="#calculadora" className="btn-glass inline-flex items-center justify-center gap-2 py-3 px-6 rounded-lg border border-primary/20">
               Calcular Rentabilidade
             </a>
           </div>
@@ -54,7 +54,7 @@ const Hero = () => {
               <div key={index} className="glass-panel p-4 md:p-6 text-center">
                 <div className="stat-value">
                   {stat.value}
-                  {stat.unit && <span className="text-2xl md:text-3xl ml-1">{stat.unit}</span>}
+                  {stat.unit && <span className="text-xs md:text-2xl ml-1">{stat.unit}</span>}
                 </div>
                 <p className="text-sm text-muted-foreground mt-2">{stat.label}</p>
               </div>

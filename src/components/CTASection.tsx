@@ -28,12 +28,12 @@ const CTASection = () => {
   return (
     <section id="contato" className="py-24 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-3xl opacity-30" />
+      <div className="absolute inset-0" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-3xl opacity-0" />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="glass-panel p-8 md:p-12 lg:p-16 max-w-4xl mx-auto text-center glow-blue animate-glow-pulse-blue">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+        <div className="glass-panel p-8 md:p-12 lg:p-16 max-w-5xl mx-auto text-center glow-blue animate-glow-pulse-blue">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-relaxed">
             Pronto para <span className="gradient-text">Começar a Minerar</span>?
           </h2>
           
@@ -43,9 +43,9 @@ const CTASection = () => {
           </p>
 
           {/* Contact Options */}
-          <div className="grid sm:grid-cols-3 gap-4 mb-10">
+          <div className="grid sm:grid-cols-3 gap-4 mb-10 w-full sm:max-w-none mx-auto px-4 sm:px-0">
             <a
-              href="https://wa.me/5511999999999"
+              href="https://api.whatsapp.com/send/?phone=5551980104595&text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+mais+informa%C3%A7%C3%B5es%21"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-card p-6 hover:border-green-500/50 group"
@@ -56,27 +56,27 @@ const CTASection = () => {
             </a>
             
             <a
-              href="mailto:contato@asicpro.com.br"
+              href="mailto:syrion.mining@gmail.com"
               className="glass-card p-6 hover:border-primary/50 group"
             >
               <Mail className="w-8 h-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
               <p className="font-semibold mb-1">E-mail</p>
-              <p className="text-sm text-muted-foreground">contato@asicpro.com.br</p>
+              <p className="text-sm text-muted-foreground">syrion.mining@gmail.com</p>
             </a>
             
             <a
-              href="tel:+551140028922"
+              href="tel:+5551980104595"
               className="glass-card p-6 hover:border-accent/50 group"
             >
               <Phone className="w-8 h-8 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform" />
               <p className="font-semibold mb-1">Telefone</p>
-              <p className="text-sm text-muted-foreground">(11) 4002-8922</p>
+              <p className="text-sm text-muted-foreground">+55 51 8010-4595</p>
             </a>
           </div>
 
           {/* Main CTA */}
           <a
-            href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre os mineradores ASIC."
+            href="https://api.whatsapp.com/send/?phone=5551980104595&text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+mais+informa%C3%A7%C3%B5es%21"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-monterey inline-flex items-center gap-2 text-sm py-3 px-6"

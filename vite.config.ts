@@ -14,4 +14,16 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    chunkSizeWarningLimit: 1000, // Aumentar limite para 1MB (padrão é 500KB)
+    rollupOptions: {
+      output: {
+        // Otimizar bundle
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          utils: ['lucide-react', '@hookform/resolvers'],
+        },
+      },
+    },
+  },
 }));

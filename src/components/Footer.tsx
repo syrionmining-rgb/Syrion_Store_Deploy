@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <a href="#" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center transition-transform hover:scale-105">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center transition-transform hover:scale-105">
                 <img src={iconLogo} alt="SYRION Store" className="w-16 h-16 object-contain" />
               </div>
               <span className="text-xl font-bold text-foreground">
@@ -51,20 +51,20 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:syrion.loja@gmail.com"
+                  href="mailto:syrion.mining@gmail.com"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Mail className="w-4 h-4" />
-                  syrion.loja@gmail.com
+                  syrion.mining@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+00000000000"
+                  href="tel:+5551980104595"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Phone className="w-4 h-4" />
-                  (00) 00000-0000
+                  +55 51 8010-4595
                 </a>
               </li>
               <li className="flex items-start gap-2 text-muted-foreground">
