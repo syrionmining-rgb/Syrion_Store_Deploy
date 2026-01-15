@@ -15,8 +15,8 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    chunkSizeWarningLimit: 1000, // Aumentar limite para 1MB (padrão é 500KB)
     rollupOptions: {
+      input: 'index.html',
       output: {
         // Otimizar bundle
         manualChunks: {
@@ -25,5 +25,6 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
+    chunkSizeWarningLimit: 1000,
   },
 }));
