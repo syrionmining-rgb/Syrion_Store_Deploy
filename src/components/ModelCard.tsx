@@ -74,7 +74,8 @@ const ModelCard = ({ model, index }: ModelCardProps) => {
   return (
     <div
       onClick={() => navigate(`/produto/${model.id}`)}
-      className={`glass-card p-4 opacity-0 animate-fade-up stagger-${index + 1} relative overflow-visible cursor-pointer hover:scale-105 transition-transform ${
+      style={{ animationDelay: `${index * 0.1}s` }}
+      className={`glass-card p-4 opacity-0 animate-fade-up relative overflow-visible cursor-pointer hover:scale-105 transition-transform ${
         index < 2 ? "rounded-3xl" : ""
       } ${
         model.featured ? "ring-1 ring-primary/30 glow-purple" : ""
