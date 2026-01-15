@@ -1,5 +1,6 @@
 import { Cpu, Zap, TrendingUp } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import type { AsicModel } from "@/data/asicModels";
 import { getBitcoinData, type BitcoinData } from "@/services/bitcoinApi";
 import { calculateMining } from "@/services/miningCalculator";
@@ -26,6 +27,7 @@ const getImageForModel = (modelId: string): string => {
 };
 
 const ModelCard = ({ model, index }: ModelCardProps) => {
+  const navigate = useNavigate();
   const [bitcoinData, setBitcoinData] = useState<BitcoinData | null>(null);
   const [monthlyProfit, setMonthlyProfit] = useState<number>(0);
 
@@ -71,7 +73,8 @@ const ModelCard = ({ model, index }: ModelCardProps) => {
 
   return (
     <div
-      className={`glass-card p-6 opacity-0 animate-fade-up stagger-${index + 1} relative overflow-visible ${
+      onClick={() => navigate(`/produto/${model.id}`)}
+      className={`glass-card p-4 opacity-0 animate-fade-up stagger-${index + 1} relative overflow-visible cursor-pointer hover:scale-105 transition-transform ${
         index < 2 ? "rounded-3xl" : ""
       } ${
         model.featured ? "ring-1 ring-primary/30 glow-purple" : ""
@@ -150,7 +153,7 @@ const ModelCard = ({ model, index }: ModelCardProps) => {
           </p>
         </div>
         <a
-          href={`https://api.whatsapp.com/send/?phone=5551980104595&text=${encodeURIComponent(`Olá, quero fechar a compra desta ${model.brand} ${model.name} - ${model.hashrate} TH/s. Poderia me ajudar? https://syrionstore.vercel.app/produto/${model.id}`)}`}
+          href={`https://api.whatsapp.com/send/?phone=5551980104595&text=${encodeURIComponent(`Olá! quero fechar a compra deste modelo\n\n📦 Modelo: ${model.brand} ${model.name}\n⚡ Hashrate: ${model.hashrate} TH/s\n💰 Preço: R$ ${model.price.toLocaleString('pt-BR')}\n\nhttps://syrionstore.vercel.app/produto/${model.id}\n\nPoderia me ajudar?`)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="btn-monterey text-sm py-3 px-6 whitespace-nowrap flex-shrink-0"

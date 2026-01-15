@@ -10,6 +10,10 @@ export interface AsicModel {
   dailyRevenue: number; // USD estimated (based on snapshot)
   dailyPowerCost: number; // USD at $0.06/kWh
   releaseYear: number;
+  releaseMonth?: string;
+  dimensions?: string; // Comprimento × Largura × Altura
+  weight?: string; // Peso em kg
+  noise?: number; // Ruído em dB
   featured?: boolean;
   badge?: string;
 }
@@ -41,6 +45,10 @@ export const asicModels: AsicModel[] = [
     dailyRevenue: calculateDailyRevenue(120),
     dailyPowerCost: calculateDailyPowerCost(2760),
     releaseYear: 2023,
+    releaseMonth: "Abril 2023",
+    dimensions: "400 × 195 × 290mm",
+    weight: "12.85 kg",
+    noise: 75,
   },
   {
     id: "s19-pro-plus-plus",
@@ -54,6 +62,9 @@ export const asicModels: AsicModel[] = [
     dailyRevenue: calculateDailyRevenue(198),
     dailyPowerCost: calculateDailyPowerCost(3250),
     releaseYear: 2023,
+    dimensions: "410 × 196 × 209mm",
+    weight: "17.5 kg",
+    noise: 76,
     badge: "Custo-Benefício",
   },
   {
@@ -68,6 +79,9 @@ export const asicModels: AsicModel[] = [
     dailyRevenue: calculateDailyRevenue(190),
     dailyPowerCost: calculateDailyPowerCost(3610),
     releaseYear: 2024,
+    dimensions: "400 × 195 × 290mm",
+    weight: "17 kg",
+    noise: 76,
     badge: "Popular",
   },
   {
@@ -82,6 +96,9 @@ export const asicModels: AsicModel[] = [
     dailyRevenue: calculateDailyRevenue(235),
     dailyPowerCost: calculateDailyPowerCost(3878),
     releaseYear: 2024,
+    dimensions: "449 × 219 × 293mm",
+    weight: "22.9 kg",
+    noise: 76,
     featured: true,
     badge: "Mais Vendido",
   },
@@ -97,6 +114,9 @@ export const asicModels: AsicModel[] = [
     dailyRevenue: calculateDailyRevenue(270),
     dailyPowerCost: calculateDailyPowerCost(3645),
     releaseYear: 2024,
+    dimensions: "400 × 195 × 290mm",
+    weight: "14.4 kg",
+    noise: 76,
     featured: true,
     badge: "Premium",
   },
