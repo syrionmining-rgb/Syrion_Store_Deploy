@@ -2,6 +2,68 @@
 
 Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 
+## [1.3.0] - 2026-01-15
+
+### ✨ Adicionado
+- **Sistema Open Graph completo** com meta tags dinâmicas para compartilhamento em redes sociais (WhatsApp, Facebook, Telegram, Twitter)
+- **Biblioteca react-helmet-async** para gerenciamento dinâmico de meta tags por página
+- **Carousel de imagens** com autoplay (4s) para produtos S19K Pro e S19 Pro++
+- **Navegação visual com dots** (bolinhas) dentro do carousel para seleção de imagens
+- **Especificações técnicas expandidas** no modelo de dados:
+  - Dimensões (width × height × depth em mm)
+  - Peso do equipamento (em kg)
+  - Nível de ruído (em dB)
+- **Página de detalhes do produto** com exibição dinâmica de:
+  - Galeria de imagens com carousel
+  - Especificações técnicas completas
+  - Cálculo de preço em USD com conversão BRL/USD em tempo real
+  - ROI e lucro mensal projetado
+  - Hashrate destacado próximo ao nome do produto
+
+### 🔧 Modificado
+- **Estrutura de dados (asicModels.ts)**:
+  - Extensão da interface AsicModel com campos: `releaseMonth`, `dimensions`, `weight`, `noise`
+  - Atualização de todos os 5 produtos com especificações completas e precisas
+- **Página de Produto (Product.tsx)**:
+  - Integração com Helmet para meta tags dinâmicas
+  - Implementação de carousel com embla-carousel-react
+  - Layout responsivo com imagem à esquerda e detalhes à direita (desktop) ou empilhados (mobile)
+  - Adição de badge de conversão USD/BRL no header
+  - Posicionamento de especificações técnicas com grid layout
+- **Entry Point (main.tsx)**:
+  - Envolvimento da aplicação com HelmetProvider para habilitar gerenciamento de meta tags
+- **Estrutura Meta Tags**:
+  - og:title, og:description, og:image, og:url, og:type, og:site_name
+  - twitter:card, twitter:title, twitter:description, twitter:image
+  - meta description padrão para SEO
+
+### 🎨 Melhorias Visuais
+- Carousel com autoplay suave (transição a cada 4 segundos)
+- Dots de navegação com design minimalista (brancos com background semi-transparente preto)
+- Imagens do carousel com `rounded-lg` para consistência visual
+- Especificações técnicas em card com glass-panel effect
+- Estilo de stats value para destaque de hashrate
+
+### 🔗 SEO & Social Sharing
+- Cada página de produto tem meta tags únicos com título, descrição e imagem específica
+- Preview automático em plataformas de compartilhamento (WhatsApp, Facebook, etc.)
+- URLs canonicais para produtos
+- Estrutura de dados pronta para schema.org (product schema)
+- Meta tags responsivos tanto para desktop quanto mobile
+
+### 📦 Dependências Adicionadas
+- `react-helmet-async@^2.0.5` - Gerenciamento de meta tags dinâmicos
+
+### 🐛 Correções
+- Garantia de que os meta tags sejam atualizados quando a página de produto é carregada
+- Importação correta de imagens do carousel (S19KPRO-2.png, S19KPRO-2_1.png, S19KPRO-3.png, S19KPRO-4.png)
+
+### 📱 Responsividade
+- Carousel funcional em todos os tamanhos de tela
+- Especificações técnicas em grid adaptável (1 coluna no mobile, 2 colunas no desktop)
+- Imagens com `max-w-3xl` e altura máxima para manter proporção
+- Navegação com dots visível em todos os breakpoints
+
 ## [1.2.0] - 2026-01-15
 
 ### ✨ Adicionado
