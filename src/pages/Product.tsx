@@ -39,9 +39,9 @@ const getS19ProPlusPlusGalleryImages = (): string[] => {
 const getModelImageUrl = (modelId: string): string => {
   const imageMap: { [key: string]: string } = {
     "s19k-pro": "/assets/S19KPRO.png",
-    "s19-pro-plus-plus": "/assets/S19PRO++.png",
+    "s19-pro-plus-plus": "/assets/S19PRO%2B%2B.png",
     "t21": "/assets/T21.png",
-    "s21-plus": "/assets/S21+.png",
+    "s21-plus": "/assets/S21%2B.png",
     "s21-xp": "/assets/S21XP.png",
   };
   const imagePath = imageMap[modelId] || imageMap["s19k-pro"];
