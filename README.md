@@ -425,3 +425,5 @@ Para dúvidas comerciais ou suporte:
 Feito com ❤️ e ⚡ por [Syrion Store](https://www.syrionstore.com)
 
 </div>
+#   S y r i o n _ S t o r e _ D e p l o y - v 1 . 3  
+ 
