@@ -18,6 +18,17 @@ const getModelImage = (modelId: string): string => {
   return s19KProImage;
 };
 
+const getModelImageUrl = (modelId: string): string => {
+  const imageMap: { [key: string]: string } = {
+    "s19k-pro": "https://syrionstore.vercel.app/src/assets/images/S19KPRO.png",
+    "s19-pro-plus-plus": "https://syrionstore.vercel.app/src/assets/images/S19PRO++.png",
+    "t21": "https://syrionstore.vercel.app/src/assets/images/T21.png",
+    "s21-plus": "https://syrionstore.vercel.app/src/assets/images/S21+.png",
+    "s21-xp": "https://syrionstore.vercel.app/src/assets/images/S21XP.png",
+  };
+  return imageMap[modelId] || imageMap["s19k-pro"];
+};
+
 const Product = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -46,7 +57,7 @@ const Product = () => {
         <title>{model.brand} {model.name} - SYRION Store</title>
         <meta property="og:title" content={`${model.brand} ${model.name} - SYRION Store`} />
         <meta property="og:description" content={`${model.hashrate} TH/s - Consumo: ${model.power}W - Eficiência: ${model.efficiency} J/TH - R$ ${model.price.toLocaleString('pt-BR')}`} />
-        <meta property="og:image" content={`https://syrionstore.vercel.app${getModelImage(model.id)}`} />
+        <meta property="og:image" content={getModelImageUrl(model.id)} />
         <meta property="og:url" content={`https://syrionstore.vercel.app/produto/${model.id}`} />
         <meta property="og:type" content="product" />
         <meta name="description" content={`${model.brand} ${model.name} - Minerador ASIC para Bitcoin. ${model.hashrate} TH/s com alta eficiência.`} />
