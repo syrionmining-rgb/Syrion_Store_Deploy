@@ -13,10 +13,15 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <div className="section-divider" />
         <ModelsSection />
+        <div className="section-divider" />
         <ComparisonTable />
+        <div className="section-divider" />
         <Calculator />
+        <div className="section-divider" />
         <CTASection />
+        <div className="section-divider" />
         <FAQ />
       </main>
       <Footer />
