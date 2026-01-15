@@ -1,6 +1,5 @@
 import { Cpu, Zap, TrendingUp } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import type { AsicModel } from "@/data/asicModels";
 import { getBitcoinData, type BitcoinData } from "@/services/bitcoinApi";
 import { calculateMining } from "@/services/miningCalculator";
@@ -27,7 +26,6 @@ const getImageForModel = (modelId: string): string => {
 };
 
 const ModelCard = ({ model, index }: ModelCardProps) => {
-  const navigate = useNavigate();
   const [bitcoinData, setBitcoinData] = useState<BitcoinData | null>(null);
   const [monthlyProfit, setMonthlyProfit] = useState<number>(0);
 
@@ -73,9 +71,8 @@ const ModelCard = ({ model, index }: ModelCardProps) => {
 
   return (
     <div
-      onClick={() => navigate(`/produto/${model.id}`)}
       style={{ animationDelay: `${index * 0.1}s` }}
-      className={`glass-card p-4 opacity-0 animate-fade-up relative overflow-visible cursor-pointer hover:scale-105 transition-transform ${
+      className={`glass-card p-4 opacity-0 animate-fade-up relative overflow-visible ${
         index < 2 ? "rounded-3xl" : ""
       } ${
         model.featured ? "ring-1 ring-primary/30 glow-purple" : ""
