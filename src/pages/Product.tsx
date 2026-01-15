@@ -20,13 +20,14 @@ const getModelImage = (modelId: string): string => {
 
 const getModelImageUrl = (modelId: string): string => {
   const imageMap: { [key: string]: string } = {
-    "s19k-pro": "https://syrionstore.vercel.app/src/assets/images/S19KPRO.png",
-    "s19-pro-plus-plus": "https://syrionstore.vercel.app/src/assets/images/S19PRO++.png",
-    "t21": "https://syrionstore.vercel.app/src/assets/images/T21.png",
-    "s21-plus": "https://syrionstore.vercel.app/src/assets/images/S21+.png",
-    "s21-xp": "https://syrionstore.vercel.app/src/assets/images/S21XP.png",
+    "s19k-pro": "/assets/S19KPRO.png",
+    "s19-pro-plus-plus": "/assets/S19PRO++.png",
+    "t21": "/assets/T21.png",
+    "s21-plus": "/assets/S21+.png",
+    "s21-xp": "/assets/S21XP.png",
   };
-  return imageMap[modelId] || imageMap["s19k-pro"];
+  const imagePath = imageMap[modelId] || imageMap["s19k-pro"];
+  return `https://syrionstore.vercel.app${imagePath}`;
 };
 
 const Product = () => {
