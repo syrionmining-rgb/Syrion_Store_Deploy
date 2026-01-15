@@ -133,7 +133,7 @@ const Product = () => {
         <meta name="twitter:description" content={`${model.hashrate} TH/s - R$ ${model.price.toLocaleString('pt-BR')}`} />
         <meta name="twitter:image" content={getModelImageUrl(model.id)} />
       </Helmet>
-    <div className="min-h-screen hero-bg">
+    <div className="min-h-screen hero-bg animate-fade-up">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50">
         <div className="glass-panel mx-4 mt-4 md:mx-8">
