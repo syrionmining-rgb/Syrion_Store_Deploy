@@ -16,7 +16,6 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     rollupOptions: {
-      input: 'index.html',
       output: {
         // Otimizar bundle
         manualChunks: {
