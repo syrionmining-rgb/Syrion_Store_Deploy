@@ -41,6 +41,39 @@ const Product = () => {
     }
   }, [model, navigate]);
 
+  useEffect(() => {
+    if (model) {
+      // Update document title
+      document.title = `${model.brand} ${model.name} - SYRION Store`;
+      
+      // Update or create meta tags
+      const updateMetaTag = (property: string, content: string) => {
+        let tag = document.querySelector(`meta[property="${property}"]`);
+        if (!tag) {
+          tag = document.createElement('meta');
+          tag.setAttribute('property', property);
+          document.head.appendChild(tag);
+        }
+        tag.setAttribute('content', content);
+      };
+
+      updateMetaTag('og:title', `${model.brand} ${model.name} - SYRION Store`);
+      updateMetaTag('og:description', `${model.hashrate} TH/s - Consumo: ${model.power}W - Eficiência: ${model.efficiency} J/TH - R$ ${model.price.toLocaleString('pt-BR')}`);
+      updateMetaTag('og:image', getModelImageUrl(model.id));
+      updateMetaTag('og:url', `https://syrionstore.vercel.app/produto/${model.id}`);
+      updateMetaTag('og:type', 'product');
+      
+      // Update description meta tag
+      let descTag = document.querySelector('meta[name="description"]');
+      if (!descTag) {
+        descTag = document.createElement('meta');
+        descTag.setAttribute('name', 'description');
+        document.head.appendChild(descTag);
+      }
+      descTag.setAttribute('content', `${model.brand} ${model.name} - Minerador ASIC para Bitcoin. ${model.hashrate} TH/s com alta eficiência.`);
+    }
+  }, [model]);
+
   if (!model) {
     return <div>Produto não encontrado</div>;
   }
@@ -53,17 +86,6 @@ const Product = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Meta Tags para Open Graph */}
-      <head>
-        <title>{model.brand} {model.name} - SYRION Store</title>
-        <meta property="og:title" content={`${model.brand} ${model.name} - SYRION Store`} />
-        <meta property="og:description" content={`${model.hashrate} TH/s - Consumo: ${model.power}W - Eficiência: ${model.efficiency} J/TH - R$ ${model.price.toLocaleString('pt-BR')}`} />
-        <meta property="og:image" content={getModelImageUrl(model.id)} />
-        <meta property="og:url" content={`https://syrionstore.vercel.app/produto/${model.id}`} />
-        <meta property="og:type" content="product" />
-        <meta name="description" content={`${model.brand} ${model.name} - Minerador ASIC para Bitcoin. ${model.hashrate} TH/s com alta eficiência.`} />
-      </head>
-
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50">
         <div className="glass-panel mx-4 mt-4 md:mx-8">
